@@ -20,6 +20,17 @@ namespace WebApplication2.Account
             if (Session["Id"] != null)
             {
                 director = db.getDirector(Session["Id"].ToString());
+
+                if(Session["isDirector"] != null)
+                {
+                    PanelDepartmentDirector.Visible = true;
+                    PanelTeamDirector.Visible = false;
+                }
+                else
+                {
+                    PanelDepartmentDirector.Visible = false;
+                    PanelTeamDirector.Visible = true;
+                }
             }
         }
     }

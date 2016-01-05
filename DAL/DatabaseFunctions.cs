@@ -30,9 +30,12 @@ namespace WebApplication2.DAL
             {
                 string idDirector = reader["Id"] + "";
                 string pwdDirector = reader["Password"] + "";
+                string firstName = reader["FirstName"] + "";
+                string lastName = reader["LastName"] + "";
                 bool isDepartmentDirector = Convert.ToBoolean(reader["Type"]);
 
-                director = new Director(idDirector, pwdDirector, isDepartmentDirector);
+
+                director = new Director(idDirector, firstName, lastName, pwdDirector, isDepartmentDirector);
             }
 
             con.Close();
@@ -54,15 +57,39 @@ namespace WebApplication2.DAL
             {
                 string idDirector = reader["Id"] + "";
                 string pwdDirector = reader["Password"] + "";
+                string firstName = reader["FirstName"] + "";
+                string lastName = reader["LastName"] + "";
                 bool isDepartmentDirector = Convert.ToBoolean(reader["Type"]);
 
-                director = new Director(idDirector, pwdDirector, isDepartmentDirector);
+                director = new Director(idDirector, firstName, lastName, pwdDirector, isDepartmentDirector);
             }
 
             con.Close();
             reader.Close();
 
             return director;
+        }
+
+        public bool addNewEmployee(Employees employee)
+        {
+            //add if new
+            con.Open();
+            //String addDetails = "INSERT INTO Patient VALUES('" + patient.PatientId + "','" + patient.FirstName + "','" + patient.LastName + "','" + patient.Mail + "','" + patient.PhoneNumber + "','" + patient.Address + "','"  + patient.Hmo + "','" + patient.Password + "','" + patient.TherapistId + "')";
+            //  MySqlCommand command = new MySqlCommand(addDetails, con);
+            SqlCommand comm = con.CreateCommand();
+            comm.CommandText = "INSERT INTO Employee(Id, FirstName, LastName, Date_begin, Role_employee) VALUES(@id, @firstName, @lastName, @date_begin, @role)";
+           
+
+            //comm.ExecuteNonQuery();
+            //  con.Close();
+            if (comm.ExecuteNonQuery() > 0)
+            {
+                con.Close();
+                return true;
+            }
+
+            con.Close();
+            return false;
         }
     }
 }

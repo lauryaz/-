@@ -9,12 +9,16 @@ namespace WebApplication2.Class
     {
         private string id_number;
         private string password;
+        private string firstName;
+        private string lastName;
         private bool isDepartmentDirector;
 
-        public Director(string id_number, string password, bool isDepartmentDirector)
+        public Director(string id_number, string firstName, string lastName, string password, bool isDepartmentDirector)
         {
             this.id_number = id_number;
             this.password = password;
+            this.firstName = firstName;
+            this.lastName = lastName;
             this.isDepartmentDirector = isDepartmentDirector;
 
         }
@@ -51,6 +55,28 @@ namespace WebApplication2.Class
             set
             {
                 isDepartmentDirector = value;
+            }
+        }
+        public string First_Name
+        {
+            get
+            {
+                return firstName;
+            }
+            set
+            {
+                firstName = value;
+            }
+        }
+        public string Last_Name
+        {
+            get
+            {
+                return lastName;
+            }
+            set
+            {
+                lastName = value;
             }
         }
 

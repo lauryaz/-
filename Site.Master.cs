@@ -76,6 +76,19 @@ namespace WebApplication2
         {
             Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
         }
+
+
+
+        protected void LogoutCLick(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("/Default.aspx");
+        }
+
+        protected void ViewProjectClick(object sender, EventArgs e)
+        {
+        }
+        
     }
 
 }

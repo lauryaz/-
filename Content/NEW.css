@@ -1,0 +1,59 @@
+﻿.background-image {
+    background-image: url('../images1.jpg');
+}
+
+.Header {
+    margin-bottom: 2%;
+}
+.writemiddlelabel {
+    display: block;
+    text-align: center;
+    margin-top:45%;
+    
+}
+
+.paragraph1 {
+    border: 2px solid white;
+    padding: 20px 20px 20px 20px;
+    /* PADDING-LEFT: 20px; */
+    width: 30%;
+}
+
+.paragraph2 {
+    border: 2px solid white;
+    padding: 50px 50px 50px 50px;
+    /* PADDING-LEFT: 20px; */
+    width: 20%;
+    margin-right:inherit;
+    background-color:gray ;
+    
+}
+.paragraph3 {
+    border: 2px ;
+    border-style: solid;
+    border-color: lightgray;
+    border-radius: 50%;
+	width: 200px;
+	height: 200px;
+    background-color:lightgray;
+}
+.police{
+    font-size: 60px;
+}
+
+.divrelative {
+    margin-top: 10%;
+}
+
+.labeltext {
+    color: #B4886B;
+    font-weight: bold;
+    display: block;
+    width: 150px;
+    float: left;
+}
+
+.panel-size{
+    margin-top: 5%;
+    height:auto;
+}

@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="Phone Number" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AddPhoneNumber.aspx.cs" Inherits="WebApplication2.Account.AddPhoneNumber" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <link href="../Content/NEW.css" rel="stylesheet" />
+
     <h2><%: Title %>.</h2>
 
     <div class="form-horizontal">

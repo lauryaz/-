@@ -47,6 +47,7 @@ audio:not([controls]) {
   height: 0;
 }
 
+
 [hidden] {
   display: none;
 }
@@ -58,8 +59,8 @@ html {
 }
 
 body {
-  margin: 0;
-  background: url("background.jpg");
+    margin: 0;
+    background-image: url('../images1.jpg');
 }
 
 a:focus {
@@ -72,7 +73,7 @@ a:hover {
 }
 
 h1 {
-  margin: 0.67em 0;
+  margin: 0 auto;
   font-size: 2em;
 }
 
@@ -318,7 +319,10 @@ body {
   color: #333333;
   background-color: #ffffff;
 }
-
+.Header
+{
+    margin-bottom:2%;
+}
 input,
 button,
 select,
@@ -400,6 +404,7 @@ hr {
   clip: rect(0 0 0 0);
   border: 0;
 }
+
 
 p {
   margin: 0 0 10px;
@@ -861,6 +866,8 @@ pre code {
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
+    top: -3px;
+    left: 2px;
 }
 
 .col-xs-1,
@@ -4931,6 +4938,15 @@ a.list-group-item.active > .badge,
 .jumbotron {
   padding: 30px;
   margin-bottom: 30px;
+  font-size: 21px;
+  font-weight: 200;
+  line-height: 2.1428571435;
+  color: inherit;
+  background-color: #eeeeee;
+}
+.jumbotronL {
+  padding: 100px;
+  margin-bottom: 100px;
   font-size: 21px;
   font-weight: 200;
   line-height: 2.1428571435;

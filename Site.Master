@@ -11,7 +11,7 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
@@ -50,35 +50,62 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
+                        <% if (Session["ID"] != null && Session["isDirector"] != null)
+                            { %>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Actions <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/Account/AddEmployee">Add employee</a></li>
+                                <li><a href="/UpdateEmployees">Update employee</a></li>
+                            </ul>
+                        </li>
+
+                            <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Projects <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Add new project</a></li>
+                                <li><a href="#">View all projects</a></li>
+                            </ul>
+                        </li>
+
+                        <%} %>
+
+                        <% if (Session["ID"] != null && Session["isDirector"] == null)
+                            { %>
+                        <li>
+                            <asp:LinkButton runat="server" OnClick="ViewProjectClick">My projects</asp:LinkButton>
+                        </li>
+                        <%} %>
                     </ul>
-                    <asp:LoginView runat="server" ViewStateMode="Disabled">
-                        <AnonymousTemplate>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Register">Register</a></li>
-                                <li><a runat="server" href="~/Account/Login">Log in</a></li>
-                            </ul>
-                        </AnonymousTemplate>
-                        <LoggedInTemplate>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
-                                <li>
-                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
-                                </li>
-                            </ul>
-                        </LoggedInTemplate>
-                    </asp:LoginView>
+                    <% if (Session["ID"] == null)
+                        { %>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a runat="server" href="~/Account/Register">Register</a></li>
+                        <li><a runat="server" href="~/Account/Login">Log in</a></li>
+                    </ul>
+                    <%} %>
+                    <% if (Session["ID"] != null)
+                        { %>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%=Session["ID"].ToString()  %> !</a></li>
+                        <li>
+                            <asp:LinkButton ID="LogoutButton" runat="server" OnClick="LogoutCLick"><span class="glyphicon glyphicon-log-out"></span> Logout</asp:LinkButton>
+                        </li>
+                    </ul>
+                    <%} %>
                 </div>
             </div>
         </div>
-        <div class="container body-content">
+        <div class="container body-content ">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-            <hr />
+
+        </div>
+
+        <div class="navbar navbar-inverse navbar-fixed-bottom text-center" id="footer">
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <p style="color: grey; margin: auto">&copy; All rights reserved to Tamar Benishay , Karin Levy and Laury Aziza <%: DateTime.Now.Year %></p>
             </footer>
         </div>
     </form>
