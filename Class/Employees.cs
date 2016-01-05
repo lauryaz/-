@@ -14,7 +14,7 @@ namespace WebApplication2.Class
         private string firstName, lastName;
 
 
-        public Employees(string FirstName,string LastName, int id_number, string Work_beginning, string Department_role)
+        public Employees(string firstName,string lastName, int id_number, string Work_beginning, string Department_role)
         {
             this.firstName = firstName;
             this.lastName = lastName;

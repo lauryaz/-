@@ -412,6 +412,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Class\Director.cs" />
     <Compile Include="Class\Employees.cs" />
+    <Compile Include="Class\Proposition.cs" />
     <Compile Include="Class\Role.cs" />
     <Compile Include="Class\Staff.cs" />
     <Compile Include="Contact.aspx.cs">
